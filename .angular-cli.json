@@ -3,7 +3,79 @@
   "project": {
     "name": "iot"
   },
-  "apps": [],
+  "apps": [
+    {
+      "name": "admin-mobile",
+      "root": "apps/admin-mobile/src",
+      "outDir": "dist/apps/admin-mobile/browser",
+      "assets": ["assets", "favicon.ico", "manifest.json"],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "../../../tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "serviceWorker": false,
+      "styles": [
+        "styles.scss",
+        "../../../node_modules/font-awesome/scss/font-awesome.scss",
+        "../../../node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
+        "../../../node_modules/angular-bootstrap-md/scss/mdb-free.scss"
+      ],
+      "stylePreprocessorOptions": {
+        "includePaths": ["../../../node_modules"]
+      },
+      "scripts": [
+        "../../../node_modules/chart.js/dist/Chart.js",
+        "../../../node_modules/hammerjs/hammer.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "platform": "server",
+      "name": "admin-mobile-server",
+      "root": "apps/admin-mobile/src",
+      "outDir": "dist/apps/admin-mobile/server",
+      "assets": ["assets", "favicon.ico"],
+      "index": "index.html",
+      "main": "main.server.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "../../../tsconfig.server.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "serviceWorker": false,
+      "styles": [
+        "styles.scss",
+        "../../../node_modules/font-awesome/scss/font-awesome.scss",
+        "../../../node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
+        "../../../node_modules/angular-bootstrap-md/scss/mdb-free.scss"
+      ],
+      "stylePreprocessorOptions": {
+        "includePaths": ["../../../node_modules"]
+      },
+      "scripts": [
+        "../../../node_modules/chart.js/dist/Chart.js",
+        "../../../node_modules/hammerjs/hammer.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "custom-charts",
+      "root": "libs/custom-charts/apps/admin-mobile/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    }
+  ],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
@@ -26,12 +98,10 @@
     }
   },
   "defaults": {
-    "schematics": {
-      "collection": "@nrwl/schematics",
-      "postGenerate": "npm run format",
-      "newProject": ["app", "lib"]
-    },
     "styleExt": "scss",
-    "component": {}
+    "component": {},
+    "schematics": {
+      "collection": "@nrwl/schematics"
+    }
   }
 }

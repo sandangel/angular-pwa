@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "module": "commonjs",
+    "baseUrl": ".",
+    "paths": {
+      "@IOT/*": ["libs/*"]
+    }
+  },
+  "exclude": ["**/*.spec.ts", "**/*.e2e-spec.ts", "node_modules", "tmp"],
+  "angularCompilerOptions": {
+    "entryModule": "apps/admin-mobile/src/app/app.server.module#AppServerModule"
+  }
+}
